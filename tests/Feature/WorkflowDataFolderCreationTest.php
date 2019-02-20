@@ -7,13 +7,6 @@ use Godbout\Alfred\Config;
 
 class WorkflowDataFolderCreationTest extends TestCase
 {
-    public function setUp(): void
-    {
-        $this->workflowDataFolder = './tests/mo.com.sleeplessmind.alfred-workflow-config';
-
-        putenv("alfred_workflow_data={$this->workflowDataFolder}");
-    }
-
     /** @test */
     public function it_creates_the_folder_if_it_doesnt_exist_when_writing_a_config_setting()
     {
