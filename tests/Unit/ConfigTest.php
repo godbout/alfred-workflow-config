@@ -12,4 +12,10 @@ class ConfigTest extends TestCase
     {
         $this->assertSame(Config::getInstance(), Config::getInstance());
     }
+
+    /** @test */
+    public function it_returns_the_instance_when_the_user_asks_for_creating_the_config_with_default_settings()
+    {
+        $this->assertSame(Config::ifEmptyStartWith([]), Config::getInstance());
+    }
 }

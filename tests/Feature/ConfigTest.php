@@ -28,4 +28,12 @@ class ConfigTest extends TestCase
 
         $this->assertJsonStringEqualsJsonFile($this->configFile, json_encode($defaultConfig));
     }
+
+    /** @test */
+    public function it_can_delete_a_setting_from_the_config_file()
+    {
+        $this->markTestIncomplete(
+            'Not sure yet if necessary. Need to give it some reflection.'
+        );
+    }
 }
