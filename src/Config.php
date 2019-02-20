@@ -23,11 +23,25 @@ class Config
         return self::$instance;
     }
 
-    public static function load()
+    public static function write()
+    {
+        $defaultConfig = [];
+
+        self::getInstance()->createAlfredWorkflowDataFolderIfNeeded();
+
+        self::getInstance()->createConfigFileIfNeeded($defaultConfig);
+    }
+
+    public static function read()
+    {
+        self::getInstance()->write();
+    }
+
+    public static function ifEmptyStartWith(array $defaultConfig = [])
     {
         self::getInstance()->createAlfredWorkflowDataFolderIfNeeded();
 
-        self::getInstance()->createConfigFileIfNeeded();
+        self::getInstance()->createConfigFileIfNeeded($defaultConfig);
     }
 
     private function createAlfredWorkflowDataFolderIfNeeded()
@@ -37,12 +51,12 @@ class Config
         }
     }
 
-    private function createConfigFileIfNeeded()
+    private function createConfigFileIfNeeded(array $config)
     {
         $configFile = $this->workflowDataFolder . '/config.json';
 
         if (! file_exists($configFile)) {
-            file_put_contents($configFile, json_encode([], JSON_PRETTY_PRINT));
+            file_put_contents($configFile, json_encode($config, JSON_PRETTY_PRINT));
         }
     }
 }
