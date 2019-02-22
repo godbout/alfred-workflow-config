@@ -1,6 +1,15 @@
-# Alfred Workflow Config
+<h1 align="center">Alfred Workflow Config</h1>
 
-Easily read and write config settings for your Alfred 3 Workflow. We took care of the <a href="#behind-the-scenes">boring stuff</a> for you.
+<p align="center">
+    <a href="https://packagist.org/packages/godbout/alfred-workflow-config"><img src="https://img.shields.io/packagist/v/godbout/alfred-workflow-config.svg?style=flat-square" alt="Latest Version on Packagist"></a>
+    <a href="https://travis-ci.org/godbout/alfred-workflow-config"><img src="https://img.shields.io/travis/godbout/alfred-workflow-config/master.svg?style=flat-square" alt="Build Status"></a>
+    <a href="https://scrutinizer-ci.com/g/godbout/alfred-workflow-config"><img src="https://img.shields.io/scrutinizer/g/godbout/alfred-workflow-config.svg?style=flat-square" alt="Quality Score"></a>
+    <a href="https://packagist.org/packages/godbout/alfred-workflow-config"><img src="https://img.shields.io/packagist/dt/godbout/alfred-workflow-config.svg?style=flat-square" alt="Total Downloads"></a>
+</p>
+
+<p align="center">
+    Easily read and write config settings for your Alfred 3 Workflow. We took care of the <a href="#behind-the-scenes">boring stuff</a> for you.
+</p>
 
 ___
 
