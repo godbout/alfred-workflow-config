@@ -115,8 +115,7 @@ class ConfigArrayAccessTest extends TestCase
         $this->assertSame($config['timer']['harvest']['token'], 'harvest_token');
         $this->assertJsonStringEqualsJsonFile(
             $this->configFile,
-            json_encode(['timer' => ['harvest' => ['token' => 'harvest_token']]
-            ])
+            json_encode(['timer' => ['harvest' => ['token' => 'harvest_token']]])
         );
     }
 }

@@ -10,8 +10,6 @@ class Config
 
     private $configFile;
 
-    private $value;
-
     private function __construct(array $defaultConfig = [])
     {
         $this->workflowDataFolder = getenv('alfred_workflow_data');
@@ -30,6 +28,11 @@ class Config
         return self::$instance;
     }
 
+    public static function ifEmptyStartWith(array $defaultConfig = [])
+    {
+        return self::getInstance($defaultConfig);
+    }
+
     public static function read($key)
     {
         $dot = dot(self::getInstance()->getConfigFileContentAsArray());
@@ -46,9 +49,14 @@ class Config
         self::getInstance()->writeArrayToConfigFileContent($dot->all());
     }
 
-    public static function ifEmptyStartWith(array $defaultConfig = [])
+    private function getConfigFileContentAsArray()
     {
-        return self::getInstance($defaultConfig);
+        return json_decode(file_get_contents(self::getInstance()->configFile), true);
+    }
+
+    private function writeArrayToConfigFileContent(array $config = [])
+    {
+        file_put_contents(self::getInstance()->configFile, json_encode($config));
     }
 
     private function createAlfredWorkflowDataFolderIfNeeded()
@@ -63,15 +71,5 @@ class Config
         if (! file_exists($this->configFile)) {
             file_put_contents($this->configFile, json_encode($config, JSON_PRETTY_PRINT));
         }
-    }
-
-    private function getConfigFileContentAsArray()
-    {
-        return json_decode(file_get_contents(self::getInstance()->configFile), true);
-    }
-
-    private function writeArrayToConfigFileContent(array $config = [])
-    {
-        file_put_contents(self::getInstance()->configFile, json_encode($config));
     }
 }

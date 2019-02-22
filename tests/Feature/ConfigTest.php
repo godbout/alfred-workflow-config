@@ -33,7 +33,7 @@ class ConfigTest extends TestCase
     public function it_can_delete_a_setting_from_the_config_file()
     {
         $this->markTestIncomplete(
-            'Not sure yet if necessary. Need to give it some reflection.'
+            'Not sure yet if necessary. Need to use the package in real life first, not in fantasy.'
         );
     }
 }
