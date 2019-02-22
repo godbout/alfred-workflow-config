@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use Tests\TestCase;
-use Godbout\Alfred\Config;
+use Godbout\Alfred\Workflow\Config;
 
 class ConfigTest extends TestCase
 {

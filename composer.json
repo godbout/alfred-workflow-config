@@ -22,7 +22,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Godbout\\Alfred\\": "src/"
+            "Godbout\\Alfred\\Workflow\\": "src/"
         }
     },
     "autoload-dev": {
