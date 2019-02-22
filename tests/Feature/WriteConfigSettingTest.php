@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use Adbar\Dot;
 use Tests\TestCase;
 use Godbout\Alfred\Config;
 
@@ -28,7 +29,7 @@ class WriteConfigSettingTest extends TestCase
 
         $this->assertJsonStringEqualsJsonFile(
             $this->configFile,
-            json_encode(array_merge($defaultConfig, ['plane' => 'airbus']))
+            json_encode(['country' => 'China', 'plane' => 'airbus'])
         );
     }
 
@@ -46,9 +47,36 @@ class WriteConfigSettingTest extends TestCase
         $this->assertJsonStringEqualsJsonFile($this->configFile, json_encode(['computer' => 'MacBook']));
     }
 
-    /**
-     * iTodo
-     *
-     * - multidimensional arrays
-     */
+    /** @test */
+    public function it_can_add_a_nested_setting_using_dot_notation_syntax()
+    {
+        Config::write('timer.toggl.token', 'the_toggl_token');
+
+        $this->assertJsonStringEqualsJsonFile(
+            $this->configFile,
+            json_encode(['timer' => ['toggl' => ['token' => 'the_toggl_token']]
+            ])
+        );
+    }
+
+    /** @test */
+    public function it_can_add_multiple_settings()
+    {
+        Config::write('human', true);
+        Config::write('author.name', 'Guillaume');
+        Config::write('author.age', 37);
+
+        $this->assertJsonStringEqualsJsonFile(
+            $this->configFile,
+            json_encode(
+                [
+                    'human' => true,
+                    'author' => [
+                        'name' => 'Guillaume',
+                        'age' => 37,
+                    ]
+                ]
+            )
+        );
+    }
 }

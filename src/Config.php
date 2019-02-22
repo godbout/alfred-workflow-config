@@ -2,62 +2,53 @@
 
 namespace Godbout\Alfred;
 
-use ArrayAccess;
-
-class Config implements ArrayAccess
+class Config
 {
-    private static $instance;
+    private static $instance = null;
 
     private $workflowDataFolder;
 
     private $configFile;
 
-    private function __construct()
+    private $value;
+
+    private function __construct(array $defaultConfig = [])
     {
         $this->workflowDataFolder = getenv('alfred_workflow_data');
-
         $this->configFile = $this->workflowDataFolder . '/config.json';
+
+        $this->createAlfredWorkflowDataFolderIfNeeded();
+        $this->createConfigFileIfNeeded($defaultConfig);
     }
 
-    public static function getInstance()
+    public static function getInstance(array $defaultConfig = [])
     {
         if (is_null(self::$instance)) {
-            self::$instance = new self;
+            self::$instance = new self($defaultConfig);
         }
 
         return self::$instance;
     }
 
-    public static function write($key, $value)
-    {
-        self::getInstance()->initialize();
-
-        $config = json_decode(file_get_contents(self::getInstance()->configFile), true);
-
-        file_put_contents(self::getInstance()->configFile, json_encode(array_merge($config, [$key => $value])));
-    }
-
     public static function read($key)
     {
-        self::getInstance()->initialize();
+        $dot = dot(self::getInstance()->getConfigFileContentAsArray());
 
-        $config = json_decode(file_get_contents(self::getInstance()->configFile), true);
+        return $dot->get($key);
+    }
 
-        return $config[$key] ?? null;
+    public static function write($key, $value)
+    {
+        $dot = dot(self::getInstance()->getConfigFileContentAsArray());
+
+        $dot->set($key, $value);
+
+        self::getInstance()->writeArrayToConfigFileContent($dot->all());
     }
 
     public static function ifEmptyStartWith(array $defaultConfig = [])
     {
-        return self::getInstance()->initialize($defaultConfig);
-    }
-
-    private function initialize($defaultConfig = [])
-    {
-        self::getInstance()->createAlfredWorkflowDataFolderIfNeeded();
-
-        self::getInstance()->createConfigFileIfNeeded($defaultConfig);
-
-        return self::getInstance();
+        return self::getInstance($defaultConfig);
     }
 
     private function createAlfredWorkflowDataFolderIfNeeded()
@@ -74,23 +65,13 @@ class Config implements ArrayAccess
         }
     }
 
-    public function offsetExists($offset): bool
+    private function getConfigFileContentAsArray()
     {
-        return self::getInstance()->read($offset) !== null;
+        return json_decode(file_get_contents(self::getInstance()->configFile), true);
     }
 
-    public function offsetGet($offset)
+    private function writeArrayToConfigFileContent(array $config = [])
     {
-        return self::getInstance()->read($offset);
-    }
-
-    public function offsetSet($offset, $value): void
-    {
-        self::getInstance()->write($offset, $value);
-    }
-
-    public function offsetUnset($offset): void
-    {
-        self::getInstance()->write($offset, null);
+        file_put_contents(self::getInstance()->configFile, json_encode($config));
     }
 }

@@ -27,21 +27,6 @@ class ReadConfigSettingTest extends TestCase
     }
 
     /** @test */
-    public function it_can_return_the_value_of_a_nested_setting_using_array_syntax()
-    {
-        $defaultConfig = [
-            'vegetable' => [
-                'courgette' => 'green',
-                'potato' => 'yellow'
-            ]
-        ];
-
-        $config = Config::ifEmptyStartWith($defaultConfig);
-
-        $this->assertSame('green', $config['vegetable']['courgette']);
-    }
-
-    /** @test */
     public function it_can_return_the_value_of_a_nested_setting_using_dot_notation_syntax()
     {
         $defaultConfig = [

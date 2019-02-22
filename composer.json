@@ -29,5 +29,8 @@
         "psr-4": {
             "Tests\\": "tests/"
         }
+    },
+    "require": {
+        "adbario/php-dot-notation": "^2.2"
     }
 }
