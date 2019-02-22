@@ -2,7 +2,6 @@
 
 namespace Tests\Feature;
 
-use Adbar\Dot;
 use Tests\TestCase;
 use Godbout\Alfred\Config;
 

@@ -2,9 +2,9 @@
 
 namespace Tests;
 
+use ReflectionClass;
 use Godbout\Alfred\Config;
 use PHPUnit\Framework\TestCase as BaseTestCase;
-use ReflectionClass;
 
 class TestCase extends BaseTestCase
 {

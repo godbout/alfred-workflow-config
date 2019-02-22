@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use Godbout\Alfred\Config;
 use Tests\TestCase;
+use Godbout\Alfred\Config;
 
 class ConfigTest extends TestCase
 {
