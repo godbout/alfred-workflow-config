@@ -23,7 +23,7 @@ class TestCase extends BaseTestCase
     {
         parent::tearDown();
 
-        $this->resetConfigSingletion();
+        $this->resetConfigSingleton();
 
         $workflowDataFolder = './tests/mo.com.sleeplessmind.alfred-workflow-config';
 
@@ -36,7 +36,7 @@ class TestCase extends BaseTestCase
         }
     }
 
-    private function resetConfigSingletion()
+    private function resetConfigSingleton()
     {
         $config = Config::getInstance();
         $reflection = new ReflectionClass($config);

@@ -23,7 +23,7 @@ composer require godbout/alfred-workflow-config
 
 ## Usage
 
-> /!\ The package uses an environment variable set by Alfred to determine where to create and store your data. If you are not using this Config class through a script that is called by Alfred (like in your tests, for example), then you need set that environment variable. Use `putenv("alfred_workflow_data=./where_you_want_to_store_alfred_data");` before writing or reading your settings.
+> /!\ The package uses an environment variable set by Alfred to determine where to create and store your data. If you are not using this Config class through a script that is called by Alfred (like in your tests, for example), then you need to set that environment variable. Use `putenv("alfred_workflow_data=./where_you_want_to_store_alfred_data");` before writing or reading your settings.
 
 Import the class:
 
