@@ -4,6 +4,7 @@
     <a href="https://packagist.org/packages/godbout/alfred-workflow-config"><img src="https://img.shields.io/packagist/v/godbout/alfred-workflow-config.svg?style=flat-square" alt="Latest Version on Packagist"></a>
     <a href="https://travis-ci.org/godbout/alfred-workflow-config"><img src="https://img.shields.io/travis/godbout/alfred-workflow-config/master.svg?style=flat-square" alt="Build Status"></a>
     <a href="https://scrutinizer-ci.com/g/godbout/alfred-workflow-config"><img src="https://img.shields.io/scrutinizer/g/godbout/alfred-workflow-config.svg?style=flat-square" alt="Quality Score"></a>
+    <a href="https://scrutinizer-ci.com/g/godbout/alfred-workflow-config"><img src="https://scrutinizer-ci.com/g/godbout/alfred-workflow-config/badges/coverage.png?b=master" alt="Code Coverage"></a>
     <a href="https://packagist.org/packages/godbout/alfred-workflow-config"><img src="https://img.shields.io/packagist/dt/godbout/alfred-workflow-config.svg?style=flat-square" alt="Total Downloads"></a>
 </p>
 
@@ -21,6 +22,8 @@ composer require godbout/alfred-workflow-config
 ```
 
 ## Usage
+
+> /!\ The package uses an environment variable set by Alfred to determine where to create and store your data. If you are not using this Config class through a script that is called by Alfred (like in your tests, for example), then you need set that environment variable. Use `putenv("alfred_workflow_data=./where_you_want_to_store_alfred_data");` before writing or reading your settings.
 
 Import the class:
 
