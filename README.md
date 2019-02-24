@@ -1,4 +1,4 @@
-<h1 align="center">Alfred Workflow Config</h1>
+<h1 align="center">PHP Alfred Workflow Config</h1>
 
 <p align="center">
     <a href="https://packagist.org/packages/godbout/alfred-workflow-config"><img src="https://img.shields.io/packagist/v/godbout/alfred-workflow-config.svg?style=flat-square" alt="Latest Version on Packagist"></a>
