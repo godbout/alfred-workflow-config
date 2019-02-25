@@ -18,4 +18,16 @@ class ConfigTest extends TestCase
     {
         $this->assertSame(Config::ifEmptyStartWith([]), Config::getInstance());
     }
+
+    /** @test */
+    public function it_can_be_destroyed()
+    {
+        $firstInstance = Config::getInstance();
+
+        Config::destroy();
+
+        $secondInstance = Config::getInstance();
+
+        $this->assertNotSame($firstInstance, $secondInstance);
+    }
 }

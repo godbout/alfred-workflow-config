@@ -10,6 +10,7 @@ class Config
 
     private $configFile;
 
+
     private function __construct(array $defaultConfig = [])
     {
         $this->workflowDataFolder = getenv('alfred_workflow_data');
@@ -71,5 +72,18 @@ class Config
         if (! file_exists($this->configFile)) {
             file_put_contents($this->configFile, json_encode($config, JSON_PRETTY_PRINT));
         }
+    }
+
+    public static function destroy()
+    {
+        self::getInstance()->reset();
+
+        self::$instance = null;
+    }
+
+    private function reset()
+    {
+        self::getInstance()->workflowDataFolder = null;
+        self::getInstance()->configFile = null;
     }
 }
