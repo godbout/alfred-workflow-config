@@ -23,8 +23,6 @@ composer require godbout/alfred-workflow-config
 
 ## Usage
 
-> /!\ The package uses an environment variable set by Alfred to determine where to create and store your data. If you are not using this Config class through a script that is called by Alfred (like in your tests, for example), then you need to set that environment variable. Use `putenv("alfred_workflow_data=./where_you_want_to_store_alfred_data");` before writing or reading your settings.
-
 Import the class:
 
 ```php
@@ -53,6 +51,27 @@ You can provide a default config for your workflow. It will only be saved if no 
 ```php
 Config::ifEmptyStartWith(['version' => 1.0, 'enabled' => true]);
 ```
+
+## Usage in your tests
+
+#### Set the Alfred Workflow Data environment variable
+
+The package uses an environment variable set by Alfred to determine where to create and store your data. If you are not using this Config class through a script that is called by Alfred (like in your [tests](#usage-in-your-tests), for example), then you need to set that environment variable. Use `putenv("alfred_workflow_data=./where_you_want_to_store_alfred_data");` before writing or reading your settings.
+
+#### Destroy the Config between tests
+
+The `Config` class is a singleton. This allows me to provide you with a very simple and nice to use API. It works great when being used by Alfred calling your Workflow script, but not so much with testing. If you're using the `Config` class in your own tests, you have to destroy the singleton between each test. You can do it easily like this:
+
+```php
+protected function tearDown(): void
+{
+    parent::tearDown();
+
+    Config::destroy();
+}
+```
+
+This will make sure that your next test starts with a virgin `Config`.
 
 ## ArrayAccess
 
