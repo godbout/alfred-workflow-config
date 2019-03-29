@@ -57,7 +57,7 @@ class Config
 
     private function writeArrayToConfigFileContent(array $config = [])
     {
-        file_put_contents(self::getInstance()->configFile, json_encode($config));
+        file_put_contents(self::getInstance()->configFile, json_encode($config, JSON_PRETTY_PRINT));
     }
 
     private function createAlfredWorkflowDataFolderIfNeeded()
