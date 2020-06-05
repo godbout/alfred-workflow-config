@@ -2,7 +2,7 @@
 
 <p align="center">
     <a href="https://packagist.org/packages/godbout/alfred-workflow-config"><img src="https://poser.pugx.org/godbout/alfred-workflow-config/v/stable" alt="Latest Stable Version"></a>
-    <a href="https://travis-ci.org/godbout/alfred-workflow-config"><img src="https://img.shields.io/travis/godbout/alfred-workflow-config/master.svg" alt="Build Status"></a>
+    <a href="https://travis-ci.com/godbout/alfred-workflow-config"><img src="https://img.shields.io/travis/com/godbout/alfred-workflow-config/master.svg" alt="Build Status"></a>
     <a href="https://scrutinizer-ci.com/g/godbout/alfred-workflow-config"><img src="https://img.shields.io/scrutinizer/g/godbout/alfred-workflow-config.svg" alt="Quality Score"></a>
     <a href="https://scrutinizer-ci.com/g/godbout/alfred-workflow-config"><img src="https://scrutinizer-ci.com/g/godbout/alfred-workflow-config/badges/coverage.png?b=master" alt="Code Coverage"></a>
     <a href="https://packagist.org/packages/godbout/alfred-workflow-config"><img src="https://poser.pugx.org/godbout/alfred-workflow-config/downloads" alt="Total Downloads"></a>
