@@ -1,6 +1,6 @@
 {
     "name": "godbout/alfred-workflow-config",
-    "description": "Manage settings easily for your Alfred 3 Workflows.",
+    "description": "Manage settings easily for your Alfred 3 or 4 Workflows.",
     "keywords": [
         "alfred",
         "workflow",
@@ -18,7 +18,8 @@
         }
     ],
     "require-dev": {
-        "phpunit/phpunit": "^7.5"
+        "phpunit/phpunit": "^8.5",
+        "codedungeon/phpunit-result-printer": "^0.27"
     },
     "autoload": {
         "psr-4": {
@@ -31,7 +32,7 @@
         }
     },
     "require": {
-        "php": "^7.1",
+        "php": "^7.2",
         "adbario/php-dot-notation": "^2.2"
     }
 }
