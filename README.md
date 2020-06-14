@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-    Easily read and write config settings for your Alfred 3 Workflow. We took care of the <a href="#behind-the-scenes">boring stuff</a> for you.
+    Easily read and write config settings for your Alfred 4 Workflow. We took care of the <a href="#behind-the-scenes">boring stuff</a> for you.
 </p>
 
 ___
