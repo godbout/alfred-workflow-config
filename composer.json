@@ -4,17 +4,18 @@
     "keywords": [
         "alfred",
         "workflow",
-        "php",
-        "config"
+        "alfred-workflow",
+        "config",
+        "php"
     ],
     "homepage": "https://github.com/godbout/alfred-workflow-config",
     "license": "MIT",
     "type": "library",
     "authors": [
         {
-            "name": "Guill Lo",
+            "name": "Guillaume Leclerc",
             "email": "guill@sleeplessmind.com.mo",
-            "role": "Developer"
+            "role": "Craftsman"
         }
     ],
     "require-dev": {
