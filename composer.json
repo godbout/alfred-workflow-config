@@ -19,8 +19,9 @@
         }
     ],
     "require": {
-        "php": "^7.2",
-        "adbario/php-dot-notation": "^2.2"
+        "php": "^7.4 || ^8.0",
+        "adbario/php-dot-notation": "^2.2",
+        "scrutinizer/ocular": "^1.8"
     },
     "autoload": {
         "psr-4": {
@@ -28,8 +29,9 @@
         }
     },
     "require-dev": {
-        "phpunit/phpunit": "^8.5",
-        "codedungeon/phpunit-result-printer": "^0.27"
+        "phpunit/phpunit": "^9.5",
+        "symfony/yaml": "^5.0",
+        "codedungeon/phpunit-result-printer": "^0.30"
     },
     "autoload-dev": {
         "psr-4": {
