@@ -20,7 +20,8 @@
     ],
     "require": {
         "php": "^7.4 || ^8.0",
-        "adbario/php-dot-notation": "^2.2"
+        "adbario/php-dot-notation": "^2.2",
+        "scrutinizer/ocular": "^1.8"
     },
     "autoload": {
         "psr-4": {
