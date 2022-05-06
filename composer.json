@@ -19,8 +19,8 @@
         }
     ],
     "require": {
-        "php": "^7.3 || ^8.0",
-        "adbario/php-dot-notation": "^2.2"
+        "php": "^8.0.2",
+        "adbario/php-dot-notation": "^3.1"
     },
     "autoload": {
         "psr-4": {
